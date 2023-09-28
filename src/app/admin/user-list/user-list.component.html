@@ -1,0 +1,24 @@
+<div class="container">
+  <table *ngIf="entityList && entityList.length > 0" class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of entityList; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.userId }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ changePhone(item.phone) }}</td>
+        <td>{{ item.username }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

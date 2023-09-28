@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <app-create-post></app-create-post>
+      <ng-container *ngIf="entityList && entityList.length > 0">
+        <ng-container *ngFor="let item of entityList; let i = index">
+          <app-post-card
+            [postCard]="item"
+            (commentUpdate)="updateComment(i)"
+            (reTweetUpdate)="updateReTweet(i)"
+            (likeUpdate)="updateLike(i)"
+            (impressionUpdate)="updateImpression(i)"
+          ></app-post-card>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

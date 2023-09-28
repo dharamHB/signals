@@ -1,0 +1,36 @@
+<div class="container mb-2">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2 text-center pe-0">
+          <img
+            [src]="loginUser.profile_picture"
+            class="image-fluid rounded-circle"
+            height="50"
+            width="50"
+            alt=""
+          />
+        </div>
+        <div class="col-10 ps-0">
+          <textarea
+            placeholder="What is happening?"
+            class="form-control border-0 border-bottom mb-2"
+            maxlength="400"
+            minlength="1"
+            [(ngModel)]="createPost"
+          ></textarea>
+
+          <div class="text-end mt-2">
+            <button
+              class="btn btn-primary btn-rounded px-4"
+              [disabled]="!createPost"
+              (click)="createNewPost()"
+            >
+              Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

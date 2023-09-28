@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card rounded-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2 post-image pe-2">
+              <img
+                [src]="postCard.profile_picture"
+                class="image-fluid rounded-circle"
+                height="50"
+                width="50"
+                alt=""
+              />
+            </div>
+            <div class="col-10 ps-0 ms-0">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <a
+                    role="button"
+                    (click)="userDetails()"
+                    class="fw-bold text-decoration-none"
+                  >
+                    {{ postCard.name }}</a
+                  >
+                  <span
+                    *ngIf="postCard.verified"
+                    class="material-icons text-primary mt-1 ms-1"
+                    style="font-size: 1rem"
+                  >
+                    check_circle
+                  </span>
+                  <span class="text-secondary ms-1">
+                    @{{ postCard.username }}</span
+                  >
+                  <span
+                    class="text-secondary ms-1 mt-1"
+                    style="font-size: 0.9rem"
+                  >
+                    {{ postCard.created_at | date : "short" }}</span
+                  >
+                </div>
+                <div class="d-block">
+                  <button
+                    *ngIf="postDelete"
+                    type="button"
+                    (click)="removePost()"
+                    class="d-flex btn"
+                  >
+                    <span class="material-icons"> delete </span>
+                  </button>
+                </div>
+              </div>
+              <div class="main-post mb-2">
+                {{ postCard.tweet }}
+
+                <ng-container *ngIf="postCard.tweet_media">
+                  <img
+                    [src]="postCard.tweet_media"
+                    class="image-fluid"
+                    alt=""
+                  />
+                </ng-container>
+              </div>
+              <div
+                class="post-footer d-flex justify-content-between align-items-center"
+              >
+                <button
+                  type="button"
+                  (click)="updateComment()"
+                  class="d-flex btn"
+                >
+                  <span class="material-icons"> mode_comment </span>
+                  <div class="ms-2">{{ postCard.replay_count }}</div>
+                </button>
+                <button
+                  type="button"
+                  (click)="updateReTweet()"
+                  class="d-flex btn"
+                >
+                  <span class="material-icons"> sync </span>
+                  <div class="ms-2">{{ postCard.retweet_count }}</div>
+                </button>
+                <button
+                  type="button"
+                  (click)="updateFavorite()"
+                  class="d-flex btn"
+                >
+                  <span class="material-icons"> favorite </span>
+                  <div class="ms-2">{{ postCard.like_count }}</div>
+                </button>
+                <button
+                  type="button"
+                  (click)="updateImpression()"
+                  class="d-flex btn"
+                >
+                  <span class="material-icons"> equalizer </span>
+                  <div class="ms-2">{{ postCard.impression_count }}</div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

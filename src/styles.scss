@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/functions";
+@import "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round";
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+}
