@@ -6,6 +6,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Login credentials 
+
+To visit the signals demo demo screen. 
+Username: user
+Password: 123456
+
+To visit the social media demo screen.
+Username: test
+Password: 123456
+
+To visit the admin demo screen.
+Username: admin
+Password: 123456
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
