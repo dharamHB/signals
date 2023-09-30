@@ -32,13 +32,7 @@ export class UserListService {
 
   public getUserList() {
     this.http.get('./assets/mocked/user.json').subscribe((res: any) => {
-      console.log(res);
       this.userList.update((data) => res);
     });
-  }
-
-  updateUserList(index: number): void {
-    // this.userList()[index].like_count = this.userList()[index].like_count + 1;
-    // this.userList.set(this.userList());
   }
 }

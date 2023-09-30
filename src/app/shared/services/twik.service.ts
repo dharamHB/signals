@@ -29,37 +29,43 @@ export class TwikService {
 
   public getTweetList() {
     this.http.get('./assets/mocked/tweet-list.json').subscribe((res: any) => {
-      console.log(res);
-      this.tweetList.update((data) => res);
+      this.tweetList.set(res);
     });
   }
 
   updateLike(index: number): void {
-    this.tweetList()[index].like_count = this.tweetList()[index].like_count + 1;
-    this.tweetList.set(this.tweetList());
+    this.tweetList.update((item: Tweet[]) => {
+      item[index].like_count++;
+      return item;
+    });
   }
 
   updateReTweet(index: number): void {
-    this.tweetList()[index].retweet_count =
-      this.tweetList()[index].retweet_count + 1;
-    this.tweetList.set(this.tweetList());
+    this.tweetList.update((item: Tweet[]) => {
+      item[index].retweet_count++;
+      return item;
+    });
   }
 
   updateComment(index: number): void {
-    this.tweetList()[index].replay_count =
-      this.tweetList()[index].replay_count + 1;
-    this.tweetList.set(this.tweetList());
+    this.tweetList.update((item: Tweet[]) => {
+      item[index].replay_count++;
+      return item;
+    });
   }
 
   updateImpression(index: number): void {
-    this.tweetList()[index].impression_count =
-      this.tweetList()[index].impression_count + 1;
-    this.tweetList.set(this.tweetList());
+    this.tweetList.update((item: Tweet[]) => {
+      item[index].impression_count++;
+      return item;
+    });
   }
 
   createNewPost(post: Tweet): void {
-    this.tweetList().unshift(post);
-    this.tweetList.set(this.tweetList());
+    this.tweetList.update((item: Tweet[]) => {
+      item.unshift(post);
+      return item;
+    });
   }
 
   getUserPost(username: string): Tweet[] {
@@ -68,10 +74,8 @@ export class TwikService {
   }
 
   removePost(postId: string): void {
-    const tweetList = this.tweetList().filter(
-      (tweet: Tweet) => tweet.id !== postId
+    this.tweetList.update((item: Tweet[]) =>
+      item.filter((tweet: Tweet) => tweet.id !== postId)
     );
-    console.log(this.tweetList);
-    this.tweetList.set(tweetList);
   }
 }

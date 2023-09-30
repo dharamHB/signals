@@ -22,10 +22,7 @@ export class UserContainerComponent implements OnInit {
     return this.twikService.getUserPost(this.userId);
   }
 
-  ngOnInit(): void {
-    console.log(this.userId);
-    console.log(this.entityList);
-  }
+  ngOnInit(): void {}
 
   updateComment(index: number): void {
     this.twikService.updateComment(index);
@@ -44,7 +41,6 @@ export class UserContainerComponent implements OnInit {
   }
 
   removePost(id: string): void {
-    console.log(id);
     this.twikService.removePost(id);
   }
 }

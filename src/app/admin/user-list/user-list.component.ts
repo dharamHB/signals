@@ -18,17 +18,4 @@ export class UserListComponent {
   get entityList(): User[] | null {
     return this.adminUserService.userList();
   }
-
-  updateUserList(index: number): void {
-    this.adminUserService.updateUserList(index);
-  }
-
-  changePhone(phone: string): string {
-    console.log(phone);
-    return '+91' + phone;
-  }
-
-  changeBackground(index: number) {
-    console.log(index);
-  }
 }

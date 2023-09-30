@@ -33,37 +33,31 @@ export class SignupComponent {
   }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group(
-      {
-        name: ['', Validators.required],
-        username: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(20),
-          ],
+    this.form = this.formBuilder.group({
+      name: ['', Validators.required],
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
         ],
-        email: ['', [Validators.required, Validators.email]],
-        password: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(40),
-          ],
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(40),
         ],
-        confirmPassword: ['', Validators.required],
-        acceptTerms: [false, Validators.requiredTrue],
-      }
-      // {
-      //   validators: [Validation.match('password', 'confirmPassword')],
-      // }
-    );
+      ],
+      confirmPassword: ['', Validators.required],
+      acceptTerms: [false, Validators.requiredTrue],
+    });
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
     this.submitted = true;
     if (this.form.valid) {
       this.authService.updateSignUpUser(this.form.getRawValue());
@@ -73,6 +67,5 @@ export class SignupComponent {
 
   onReset(): void {
     this.submitted = false;
-    this.form.reset();
   }
 }
